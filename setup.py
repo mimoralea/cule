@@ -9,9 +9,9 @@ from distutils.cmd import Command
 from setuptools import find_packages, setup, Extension
 from examples.utils.runtime import Runtime
 
-gpus = torch.cuda.get_arch_list() if torch.cuda.device_count() > 0 else ['70']
+gpus = torch.cuda.get_arch_list()[2:] if torch.cuda.device_count() > 0 else ['70']
 
-codes = list(set([arch[-2] + '0' for arch in gpus[2:]]))
+codes = list(set([arch[-2] + '0' for arch in gpus]))
 arch_gencode = ['-arch=sm_' + codes[0]] + ['-gencode=arch=compute_{0},code=sm_{0}'.format(code) for code in codes]
 
 base_dir = os.path.dirname(os.path.realpath(__file__))
