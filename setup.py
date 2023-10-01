@@ -10,7 +10,7 @@ from setuptools import find_packages, setup, Extension
 from examples.utils.runtime import Runtime
 
 gpu = torch.cuda.device_count() > 0
-arch = [f"-arch={(torch.cuda.get_arch_list()[-1] if gpu else 'sm_86'}"]
+arch = [f"-arch={(torch.cuda.get_arch_list()[-1] if gpu else 'sm_86')}"]
 gencode = torch.cuda.get_gencode_flags().replace('de compute', 'de=arch').split(' ')
 arch_gencode = arch + gencode
 
