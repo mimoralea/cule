@@ -90,9 +90,10 @@ RUN pip install --upgrade "torch>2." \
 RUN pip install --upgrade cython \
                           psutil \
                           pytz \
+                          tensorboard \
+                          tensorboardX \
                           tqdm
 
-RUN git clone -b master --recursive https://github.com/mimoralea/cule
-# RUN git clone -b master --recursive https://github.com/mimoralea/cule && \
-#     pip install -e cule
-# 
+# RUN git clone -b master --recursive https://github.com/mimoralea/cule
+RUN git clone -b master --recursive https://github.com/mimoralea/cule && \
+    pip install -e cule
