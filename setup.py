@@ -11,7 +11,7 @@ from examples.utils.runtime import Runtime
 
 arch = ['-arch=sm_86']
 gencode = ["-gencode=arch=compute_86,code=sm_86"]
-if torch.cuda.device_count() > 0
+if torch.cuda.device_count() > 0:
     arch = [f"-arch={torch.cuda.get_arch_list()[-1]}"]
     gencode = torch.cuda.get_gencode_flags().replace('de compute', 'de=arch').split(' ')
 arch_gencode = arch + gencode
