@@ -10,7 +10,7 @@ from setuptools import find_packages, setup, Extension
 from examples.utils.runtime import Runtime
 
 arch = [f"-arch={torch.cuda.get_arch_list()[-1]}"]
-gencode = torch.cuda.get_gencode_flags().replace('de co', 'de=arch=co').split(' ')
+gencode = torch.cuda.get_gencode_flags().replace('de compute', 'de=arch').split(' ')
 arch_gencode = arch + gencode
 
 base_dir = os.path.dirname(os.path.realpath(__file__))
